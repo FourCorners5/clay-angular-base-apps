@@ -1,5 +1,7 @@
 # Prograde Angular App Base
 
+![alt tag](https://raw.githubusercontent.com/prograde-viewsource/prograde-angular-app/master/preview.png)
+
 A starter pack for awesome applications.
 
   - Cool
