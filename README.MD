@@ -10,5 +10,11 @@ Not to mention:
   - Robust
   - Extensible
   - 2.0!
+  
+How to use:
+
+ - npm install (from Node prompt)
+ - gulp build (to serve)
+ - gulp compile (to get a neat little packaged version)
 
 > I love Prograde's AngularJS base!
