@@ -9,7 +9,7 @@ function BaseConfig($stateProvider) {
     var panelConfig = {
         left: true,
         right: false,
-        top: true,
+        top: false,
         bottom: false
     }
 
@@ -47,7 +47,7 @@ function BaseConfig($stateProvider) {
         views: baseViews,
         resolve: {
             NavItems: function () {
-                return [{ "Display": "Home", "StateRef": "home" }];
+                return [{ "Display": "Home", "StateRef": "home" },{ "Display": "Product Spotlight", "StateRef": "productspotlight" }];
             },
             PanelConfig: function(){
                 return panelConfig;
