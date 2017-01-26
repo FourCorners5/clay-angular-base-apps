@@ -1,17 +1,17 @@
-# Prograde Angular App Base
+# Clayton's Angular App Base
 
 ![Screenshot](preview.png?raw=true)
 
-A starter pack for awesome applications.
+A starter seed for coolbeans applications.
 
   - Cool
   - Spiffy
   - Fancy
 
 Not to mention:
-  - Robust
-  - Extensible
-  - 2.0!
+  - Spectacular
+  - Ingenious
+  - Bang up to the elephant
   
 How to use:
 
@@ -19,4 +19,4 @@ How to use:
  - gulp build (to serve)
  - gulp compile (to get a neat little packaged version)
 
-> I love Prograde's AngularJS base!
+> 1 out of 1 Claytons recommend this seed.

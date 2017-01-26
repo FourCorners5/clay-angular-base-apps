@@ -1,4 +1,4 @@
-angular.module('progradeApp')
+angular.module('clayApp')
 	.config(HomeConfig)
 	.controller('HomeCtrl', HomeController)
 ;

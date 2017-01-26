@@ -1,7 +1,7 @@
 {
-  "name": "prograde-angular-seed",
+  "name": "clay-angular-app",
   "version": "1.0.0",
-  "description": "A seed project for AngularJS",
+  "description": "Clayton's AngularJS seed",
   "main": "app.js",
   "engines": {
     "node": "5.6.0",
@@ -18,20 +18,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prograde-viewsource/progradeApp.git"
+    "url": "git+https://github.com/clayt/clay-angular-app.git"
   },
-  "keywords": [
-    "AngularJS",
-    "Angular"
-  ],
-  "author": "Prograde",
+  "author": "Clayton Belcher",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prograde-viewsource/progradeApp/issues"
+    "url": "https://github.com/clayt/clay-angular-app/issues"
   },
-  "homepage": "https://github.com/prograde-viewsource/progradeApp#readme",
+  "homepage": "https://github.com/clayt/clay-angular-app#readme",
   "dependencies": {
-      "angular-dragula": "^1.2.8",
       "angular-resource": "^1.5.8",
       "babel": "^6.5.2",
       "babel-cli": "^6.18.0",

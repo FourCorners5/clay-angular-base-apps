@@ -62,10 +62,10 @@ module.exports = {
     templateCacheSettings: {
         standalone: false,
         moduleSystem: 'IIFE',
-        module: 'progradeApp'
+        module: 'clayApp'
     },
     ngConstantSettings: {
-        name: 'progradeApp',
+        name: 'clayApp',
         deps: false,
         constants: {
         }

@@ -23,7 +23,7 @@
             },
             injectChanges: true,
             logFileChanges: true,
-            logPrefix: 'Prograde App'
+            logPrefix: 'Clayton App'
         });
     }
 

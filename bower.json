@@ -1,20 +1,16 @@
 {
-  "name": "prograde-angular-seed",
+  "name": "clay-angular-app",
   "authors": [
-    "Prograde"
+    "Clayton Belcher"
   ],
-  "description": "A seed project for AngularJS",
+  "description": "Clayton's AngularJS seed",
   "main": "index",
   "moduleType": [],
-  "keywords": [
-    "AngularJS",
-    "Angular"
-  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/prograde-viewsource/progradeApp/issues"
+    "url": "https://github.com/clayt/clay-angular-app/issues"
   },
-  "homepage": "https://github.com/prograde-viewsource/progradeApp#readme",
+  "homepage": "https://github.com/clayt/clay-angular-app#readme",
   "ignore": [
     "**/.*",
     "node_modules",
