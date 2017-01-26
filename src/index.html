@@ -7,23 +7,27 @@
     <link rel="icon" 
       type="image/png" 
       href="favicon.ico">
-    <base href="/">
+  <script>
+    var liveLocation = 'test'; //Change string to live subdirectory, no leading or trailing slashes.
+    if (document.location.toString().split('/')[2].split(':')[0] == 'localhost') { document.write("<base href='/' />"); } else { document.write("<base href=" + '//' + document.location.host + '/' + liveLocation + '/' + " />"); }
+  </script>
 
-    <!-- bower:css -->
-    <!-- endinject -->
+  <!-- bower:css -->
+  <!-- endinject -->
 
-    <!-- inject:css -->
-    <!-- endinject -->
-    
+  <!-- inject:css -->
+  <!-- endinject -->
+
 </head>
 
 <body>
-<ui-view></ui-view>
+  <ui-view></ui-view>
 
-<!-- bower:js -->
-<!-- endinject -->
+  <!-- bower:js -->
+  <!-- endinject -->
 
-<!-- inject:js -->
-<!-- endinject -->
+  <!-- inject:js -->
+  <!-- endinject -->
 </body>
+
 </html>

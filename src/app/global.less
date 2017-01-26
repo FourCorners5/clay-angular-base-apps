@@ -14,22 +14,6 @@ body {
   position:relative;
 }
 
-.text-primary{
-  color:@primary-text-color;;
-}
-
-.full-width{
-  width:100%;
-}
-
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
-  background-color:@brand-primary;;
-}
-
-a, a:hover, a:focus{
-  color:@primary-text-color;;
-}
-
 main {
   flex:1 1 auto;
   overflow:hidden;
@@ -158,11 +142,6 @@ colgroup {
   }
 }
 
-.buyer-select-active {
-  background-color:@brand-primary;
-  color:white;
-  }
-
 // No matches message
 .no-matches {
   @media(min-width:@screen-sm-min) {
@@ -279,6 +258,7 @@ colgroup {
       display: table-row;
       margin-bottom: 0;
       border: none;
+      background-color:transparent;
     }
     th,
     td {
@@ -302,19 +282,9 @@ colgroup {
     }
   }
   .fa-circle {
-    color:@gray-lighter;
+    color:@gray-light;
     &.active {
       color:@brand-success;
     }
   }
 }
-.scroll-count{
-   text-align: right;
-    opacity: .8;
-    font-size: .9em;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-tr:nth-child(even) {background: #fafafa}
-tr:nth-child(odd) {background: #FFF}
