@@ -6,38 +6,45 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <h4><b>Featured products: {{productSpotlightBuyer.featuredCount || 0}} <span ng-if="productSpotlightBuyer.featuredCount < 5" class="text-danger"> - Please feature at least 5 products!</span></b></h4>
+                <label><b>Featured products: {{productSpotlightBuyer.featuredCount || 0}} <span ng-if="productSpotlightBuyer.featuredCount < 5" class="text-danger"> - Please feature at least 5 products!</span></b></label>
                 <div class="input-group">
-                    <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplaySeparators ? 'btn-success' : 'btn-default'" ng-model="productSpotlightBuyer.data.Buyer.DisplaySeparators"
-                        uib-btn-checkbox>Display Separators <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplaySeparators ? 'fa-check-square-o' : 'fa-square-o'"
-                        /></label>
-                        <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplayArrows ? 'btn-success' : 'btn-default'"
-                            ng-model="productSpotlightBuyer.data.Buyer.DisplayArrows" uib-btn-checkbox>Display Arrows <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplayArrows ? 'fa-check-square-o' : 'fa-square-o'"
-                            /></label>
-                            <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplayRatings ? 'btn-success' : 'btn-default'"
-                                ng-model="productSpotlightBuyer.data.Buyer.DisplayRatings" uib-btn-checkbox>Display Ratings <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplayRatings ? 'fa-check-square-o' : 'fa-square-o'"
-                                /></label><br /><br /><button ng-click="productSpotlightBuyer.downloadTemplate()" class="btn btn-block btn-primary">Download Image Template</button>
+                    <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplaySeparators ? 'btn-success' : 'btn-default'" ng-model="productSpotlightBuyer.data.Buyer.DisplaySeparators" uib-btn-checkbox>Display Separators <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplaySeparators ? 'fa-check-square-o' : 'fa-square-o'" /></label>
+                    <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplayArrows ? 'btn-success' : 'btn-default'" ng-model="productSpotlightBuyer.data.Buyer.DisplayArrows"  uib-btn-checkbox>Display Arrows <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplayArrows ? 'fa-check-square-o' : 'fa-square-o'" /></label>
+                    <label class="btn" ng-class="productSpotlightBuyer.data.Buyer.DisplayRatings ? 'btn-success' : 'btn-default'" ng-model="productSpotlightBuyer.data.Buyer.DisplayRatings" uib-btn-checkbox>Display Ratings <i class="fa" ng-class="productSpotlightBuyer.data.Buyer.DisplayRatings ? 'fa-check-square-o' : 'fa-square-o'" /></label>
                 </div>
-                <br />
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <label>Maximum Display Time</label>
                 <div class="input-group">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default btn-number" ng-click="productSpotlightBuyer.subtract()">
-                        <span><i class="fa fa-minus" /></span>
-                    </button>
+                            <span><i class="fa fa-minus" /></span>
+                        </button>
                     </div>
-                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control input-number" ng-model="productSpotlightBuyer.data.Buyer.MaximumDisplayTime"
-                        min="1" max="45" />
+                    <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control input-number" ng-model="productSpotlightBuyer.data.Buyer.MaximumDisplayTime" min="1" max="45" />
                     <span class="input-group-addon" id="basic-addon">days</span>
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default btn-number" ng-click="productSpotlightBuyer.add()">
-                    <span><i class="fa fa-plus" /></span>
-                    </button>
+                            <span><i class="fa fa-plus" /></span>
+                        </button>
                     </div>
                 </div>
-
+            </div>
+            <div class="col-sm-3">
+                <label for="email">Notification Email Recipient</label>
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="productSpotlightBuyer.data.Buyer.Email" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <label style="opacity:0;">Placeholder</label>
+                <div class="input-group">
+                    <button ng-click="productSpotlightBuyer.downloadTemplate()" class="btn btn-primary">Download Image Template</button>
+                    <button class="btn btn-default" ng-click="productSpotlightBuyer.copyHTML()"><i class="fa fa-clipboard" /> Copy HTML</button>
+                    <button class="btn btn-default" ng-click="productSpotlightBuyer.copyJavascript()"><i class="fa fa-clipboard" /> Copy Script URL</button>
+                </div>
+            </div>
+            <div class="col-sm-6">
                 <label for="colorpicker">Separator Color</label>
                 <div id="colorpicker" class="input-group colorpicker-component">
                     <input type="text" class="form-control" value="{{productSpotlightBuyer.data.Buyer.SeparatorColor}}" />
@@ -46,12 +53,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <button class="btn btn-success" ng-disabled="!productSpotlightBuyer.changed" ng-click="productSpotlightBuyer.updateBuyerConfig()">Apply Changes</button>
-            </div>
-            <div class="col-sm-6">
-                <button class="btn btn-default" ng-click="productSpotlightBuyer.copyHTML()"><i class="fa fa-clipboard" /> Copy HTML</button>
-                <button class="btn btn-default" ng-click="productSpotlightBuyer.copyJavascript()"><i class="fa fa-clipboard" /> Copy Script URL</button>
+            <div class="col-sm-12">
+                <label style="opacity:0;">Placeholder</label>
+                <button class="btn btn-success btn-block" ng-disabled="!productSpotlightBuyer.changed" ng-click="productSpotlightBuyer.updateBuyerConfig()">Apply Changes</button>
             </div>
         </div>
     </section>
@@ -64,15 +68,13 @@
     </section>
     <section>
         <div class="row">
-            <div class="col-md-6 form-group">
+            <div class="col-sm-6">
                 <label>Search:</label>
-                <div class="form-group">
-                    <input type="search" class="form-control" placeholder="Search Products..." ng-model="productSpotlightBuyer.searchFilter"
-                    />
-                </div>
+                <input type="search" class="form-control" placeholder="Search Products..." ng-model="productSpotlightBuyer.searchFilter" />
             </div>
-            <div class="col-md-6 form-group">
-                <button type="button" class="btn btn-success pull-right" ng-click="productSpotlightBuyer.createProduct()" ng-disabled="productSpotlightBuyer.creatingProduct"><i class="fa fa-plus-circle"></i> Create New Product</button>
+            <div class="col-sm-6">
+                <label style="opacity:0;">Placeholder</label>
+                <button type="button" class="btn btn-success btn-block" ng-click="productSpotlightBuyer.createProduct()" ng-disabled="productSpotlightBuyer.creatingProduct"><i class="fa fa-plus-circle"></i> Create New Product</button>
             </div>
         </div>
         <div>
@@ -119,7 +121,7 @@
                             <button ng-click="productSpotlightBuyer.saveProduct()" class="btn btn-success btn-sm" ng-disabled="!productSpotlightBuyer.newProduct.ProductName || !productSpotlightBuyer.newProduct.ProductID || !productSpotlightBuyer.newProduct.ProductURL || !productSpotlightBuyer.newProduct.ProductImage.base64 || productSpotlightBuyer.processing">Save</button>
                         </td>
                     </tr>
-                    <tr ng-if="productSpotlightBuyer.data.Products.length" ng-repeat="product in productSpotlightBuyer.data.Products | filter:productSpotlightBuyer.searchFilter | orderBy:'Order' track by $index">
+                    <tr ng-if="productSpotlightBuyer.data.Products.length" ng-repeat="product in productSpotlightBuyer.data.Products | filter:productSpotlightBuyer.searchFilter | orderBy:'OrderBy' track by $index">
                         <td>
                             <img ng-src="{{'data:image/png;base64,' + product.ProductImage}}" class="img-responsive img-thumbnail" style="max-height:200px;"
                             />
@@ -130,8 +132,8 @@
                             <a ng-href="{{product.ProductURL}}" target="_blank">{{product.ProductURL}} <i class="fa fa-external-link" /></a>
                         </td>
                         <td>
-                            <button class="btn btn-default" ng-click="productSpotlightBuyer.moveUp(product)" ng-if="product.Order !== 0"><i class="fa fa-arrow-up" /></button>
-                            <button class="btn btn-default" ng-click="productSpotlightBuyer.moveDown(product)" ng-if="product.Order !== productSpotlightBuyer.data.Products.length - 1"><i class="fa fa-arrow-down" /></button>
+                            <button class="btn btn-default" ng-click="productSpotlightBuyer.moveUp(product)" ng-if="product.OrderBy !== 0"><i class="fa fa-arrow-up" /></button>
+                            <button class="btn btn-default" ng-click="productSpotlightBuyer.moveDown(product)" ng-if="product.OrderBy !== productSpotlightBuyer.data.Products.length - 1"><i class="fa fa-arrow-down" /></button>
                         </td>
                         <td>
                             <label class="btn" ng-class="product.Featured ? 'btn-success' : 'btn-default'" ng-model="product.modelMimic" ng-click="productSpotlightBuyer.toggleFeature(product)"

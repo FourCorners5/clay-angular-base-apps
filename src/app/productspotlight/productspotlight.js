@@ -174,7 +174,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         if (confirm("Save changes?")) {
             $rootScope.$broadcast('loadStart');
             vm.changed = false;
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatebuyerconfig", method: 'PUT', data: { "key": "delighted", "ID": vm.data.Buyer.ID, "DisplaySeparators": vm.data.Buyer.DisplaySeparators, "DisplayArrows": vm.data.Buyer.DisplayArrows, "DisplayRatings": vm.data.Buyer.DisplayRatings, "MaximumDisplayTime": vm.data.Buyer.MaximumDisplayTime, "SeparatorColor": vm.data.Buyer.SeparatorColor } }).then(function (response) {
+            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatebuyerconfig", method: 'PUT', data: { "key": "delighted", "ID": vm.data.Buyer.ID, "DisplaySeparators": vm.data.Buyer.DisplaySeparators, "DisplayArrows": vm.data.Buyer.DisplayArrows, "DisplayRatings": vm.data.Buyer.DisplayRatings, "MaximumDisplayTime": vm.data.Buyer.MaximumDisplayTime, "SeparatorColor": vm.data.Buyer.SeparatorColor, "Email": vm.data.Buyer.Email } }).then(function (response) {
                 if (response.status == 200) {
                     $state.go('.', {}, { reload: true });
                     toastr.success('Buyer Updated', 'Success');
@@ -191,17 +191,17 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         $('#sliderHolder').empty();
         var theChosenOne;
         angular.forEach(vm.data.Products, function (item) {
-            if (item.Order == product.Order - 1) {
-                item.Order++;
+            if (item.OrderBy == product.OrderBy - 1) {
+                item.OrderBy++;
                 theChosenOne = item;
             }
         });
-        product.Order--;
+        product.OrderBy--;
 
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Order": product.Order } }).then(function (response) {
+        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
             if (response.status == 200) {
-                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "Order": theChosenOne.Order } }).then(function (response) {
+                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
                     if (response.status == 200) {
                         toastr.success('Products Updated', 'Success');
                     }
@@ -221,17 +221,17 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         $('#sliderHolder').empty();
         var theChosenOne;
         angular.forEach(vm.data.Products, function (item) {
-            if (item.Order == product.Order + 1) {
-                item.Order--;
+            if (item.OrderBy == product.OrderBy + 1) {
+                item.OrderBy--;
                 theChosenOne = item;
             }
         });
-        product.Order++;
+        product.OrderBy++;
 
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Order": product.Order } }).then(function (response) {
+        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
             if (response.status == 200) {
-                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "Order": theChosenOne.Order } }).then(function (response) {
+                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
                     if (response.status == 200) {
                         toastr.success('Products Updated', 'Success');
                     }
@@ -268,7 +268,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
                 "ProductURL": vm.newProduct.ProductURL,
                 "key": "delighted",
                 "ProductImage": vm.newProduct.ProductImage.base64,
-                "Order": vm.data.Products.Length
+                "OrderBy": vm.data.Products.length
             }
         }).then(function (response) {
             if (response.status == 200) {
