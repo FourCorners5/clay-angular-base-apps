@@ -1,6 +1,6 @@
 <article id="COMPONENT_ProductSpotlight" ui-view class="container-fluid">
     <div class="page-header">
-        <button type="button" class="btn btn-success pull-right" ng-click="productSpotlight.createBuyer()"><i class="fa fa-plus-circle"></i> Create New</button>
+        <button type="button" class="btn btn-success pull-right" ng-click="productSpotlight.createBuyer()" ng-disabled="productSpotlight.creatingBuyer"><i class="fa fa-plus-circle"></i> Create New</button>
         <h3>Product Spotlight Administration</h3>
     </div>
 
@@ -15,7 +15,7 @@
 
     <!--====== LIST ======-->
     <div class="no-matches" ng-if="!productSpotlight.list.length">
-        <b>No matches found.</b>
+        <b>No buyer found.</b>
     </div>
     <div ng-if="productSpotlight.list.length">
         <table class="table table-hover oc-table-responsive" controlleras="productspotlight">
@@ -29,10 +29,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="buyer in productSpotlight.list | orderBy:productSpotlight.Name track by $index">
-                    <td class="part-number-td"> {{buyer.Name}}</td>
+                <tr ng-show="productSpotlight.creatingBuyer">
+                    <td class="part-number-td">
+                        <input type="text" class="form-control" ng-model="productSpotlight.newBuyer.Name" />
+                    </td>
                     <td class="actions-cell">
-                        <button ng-click="productSpotlight.deleteBuyer()" class="btn btn-danger btn-sm"><i class="fa fa-trash" /></button>
+                        <button ng-click="productSpotlight.cancelCreate()" class="btn btn-danger btn-sm">Cancel</button>
+                        <button ng-click="productSpotlight.saveBuyer()" class="btn btn-success btn-sm">Save</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="buyer in productSpotlight.list | filter:productSpotlight.searchFilter | orderBy:buyer.Name track by $index">
+                    <td class="part-number-td">{{buyer.Name}}</td>
+                    <td class="actions-cell">
+                        <button ng-click="productSpotlight.deleteBuyer(buyer.ID)" class="btn btn-danger btn-sm"><i class="fa fa-trash" /></button>
                         <button ui-sref=".buyer({buyerid:buyer.ID})" class="btn btn-success btn-sm">Products & Settings</button>
                     </td>
                 </tr>

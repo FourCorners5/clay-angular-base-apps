@@ -47,9 +47,9 @@ function BaseConfig($stateProvider) {
         views: baseViews,
         resolve: {
             NavItems: function () {
-                return [{ "Display": "Home", "StateRef": "home" },{ "Display": "Product Spotlight", "StateRef": "productspotlight" }];
+                return [{ "Display": "Home", "StateRef": "home" }, { "Display": "Product Spotlight", "StateRef": "productspotlight" }];
             },
-            PanelConfig: function(){
+            PanelConfig: function () {
                 return panelConfig;
             }
         }
@@ -58,9 +58,34 @@ function BaseConfig($stateProvider) {
     $stateProvider.state('base', baseState);
 }
 
-function BaseController(NavItems, PanelConfig) {
+function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope) {
     var vm = this;
     vm.navItems = NavItems;
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
+
+    vm.snapOptions = {
+        disable: (!vm.left && vm.right) ? 'left' : ((vm.left && !vm.right) ? 'right' : 'none')
+    };
+
+    function _isMobile() {
+        return $media('max-width:991px');
+    }
+
+    function _initDrawers(isMobile) {
+        snapRemote.close('MAIN');
+        if (isMobile && (vm.left || vm.right)) {
+            snapRemote.enable('MAIN');
+        } else {
+            snapRemote.disable('MAIN');
+        }
+    }
+
+    _initDrawers(_isMobile());
+
+    $rootScope.$watch(_isMobile, function (n, o) {
+        if (n === o) return;
+        _initDrawers(n);
+    });
+
 }
