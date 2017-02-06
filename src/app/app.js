@@ -11,23 +11,25 @@ angular.module('clayApp', [
     'LocalForageModule',
     'toastr',
     'cgBusy',
-    'jcs-autoValidate'
+    'jcs-autoValidate',
+    'naif.base64',
+    'ngClipboard'
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)
-    .config( ErrorHandling );
+    .config(ErrorHandling);
 
-function Routing( $urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider ) {
+function Routing($urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
     $urlMatcherFactoryProvider.strictMode(false);
-    $urlRouterProvider.otherwise( '/home' );
+    $urlRouterProvider.otherwise('/home');
     $locationProvider.html5Mode(true);
 }
 
-function ErrorHandling( $provide ) {
+function ErrorHandling($provide) {
     $provide.decorator('$exceptionHandler', handler);
 
-    function handler( $delegate, $injector ) {
-        return function( ex, cause ) {
+    function handler($delegate, $injector) {
+        return function (ex, cause) {
             $delegate(ex, cause);
             $injector.get('toastr').error(ex.data ? (ex.data.error || (ex.data.Errors ? ex.data.Errors[0].Message : ex.data)) : ex.message, 'Error');
         };
@@ -36,4 +38,11 @@ function ErrorHandling( $provide ) {
 
 function AppCtrl($rootScope, $state) {
     var vm = this;
+
+    $rootScope.$on('loadStart', function () {
+        vm.loading = true;
+    });
+    $rootScope.$on('loadStop', function () {
+        vm.loading = false;
+    });
 }

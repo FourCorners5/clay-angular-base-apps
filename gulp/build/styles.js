@@ -22,7 +22,7 @@ gulp.task('styles', ['clean:styles'], function() {
             config.components.styles.less
         ))
         .pipe(sourcemaps.init())
-        .pipe(lessImport('oc-import.less'))
+        .pipe(lessImport('cb-import.less'))
         .pipe(less())
         .pipe(autoprefixer(config.autoprefixerSettings))
         .pipe(concat('app.css'))
