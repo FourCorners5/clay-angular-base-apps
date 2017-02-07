@@ -1,0 +1,72 @@
+<article id="COMPONENT_CartonCounter" ui-view class="container-fluid">
+	<section class="page-header">
+		<h3>
+			<button type="button" class="btn btn-primary" ui-sref="home"><i class="fa fa-arrow-left" /></button> <b>Glatfelter Point Calculator</b>
+		</h3>
+	</section>
+
+	<div class="row">
+		<div class="col-xs-1 col-xs-offset-1">
+			<toggle ng-model="CartonCounter.toggleValue" ng-change="CartonCounter.updateTotal()" on="ExcelOne" off="XL1" onstyle="btn-success"
+				offstyle="btn-danger"></toggle>
+		</div>
+	</div>
+
+	<div class="row">&nbsp;</div>
+
+	<div class="row" ng-repeat="(index, line) in CartonCounter.model">
+		<div class="col-xs-1">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label class="form-control-label" style="opacity:0">Placeholder</label>
+					<button type="button" class="btn pull-right btn-default" disabled>{{index + 1}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label class="form-control-label">Material No.</label>
+					<input type="text" class="form-control" ng-model="line.Material" ng-change="CartonCounter.updateTotal()" />
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-4 col-sm-2">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label class="form-control-label">Qty.</label>
+					<input type="text" class="form-control" ng-model="line.Quantity" ng-change="CartonCounter.updateTotal()" />
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-2">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label style="opacity:0;display:block;">&nbsp;</label>
+					<button type="button" class="btn text-center" ng-class="line.Valid ? 'btn-success' : 'btn-danger'" disabled><i class="fa" ng-class="line.Valid ? 'fa-check' : 'fa-times'" /></button>
+					<button type="button" ng-show="index == CartonCounter.model.length - 1" class="btn btn-default text-center" ng-click="CartonCounter.addLine()"><i class="fa fa-plus" /></button>
+					<button type="button" ng-show="CartonCounter.model.length> 1" class="btn btn-warning text-center" ng-click="CartonCounter.deleteLine(index)"><i class="fa fa-trash" /></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4 col-sm-2 col-xs-offset-3">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label class="form-control-label">Code Point Total</label>
+					<input type="text" class="form-control" ng-model="CartonCounter.grandTotal" disabled />
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-2">
+			<div class="view-form-icon">
+				<div class="form-group">
+					<label style="opacity:0;display:block;">&nbsp;</label>
+					<button type="button" class="btn text-center btn-info" ng-click="CartonCounter.copy()"><i class="fa fa-clipboard" />Copy Total</button>
+					<button type="button" class="btn btn-warning text-center" ng-click="CartonCounter.clear()"><i class="fa fa-trash" />Clear</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>

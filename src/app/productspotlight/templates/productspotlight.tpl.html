@@ -1,8 +1,10 @@
 <article id="COMPONENT_ProductSpotlight" ui-view class="container-fluid">
-    <div class="page-header">
+    <section class="page-header">
         <button type="button" class="btn btn-success pull-right" ng-click="productSpotlight.createBuyer()" ng-disabled="productSpotlight.creatingBuyer"><i class="fa fa-plus-circle"></i> Create New</button>
-        <h3>Product Spotlight Administration</h3>
-    </div>
+        <h3>
+            <button type="button" class="btn btn-primary" ui-sref="home"><i class="fa fa-arrow-left" /></button> <b>Product Spotlight Administration</b>
+        </h3>
+    </section>
 
     <div class="row">
         <div class="col-md-6 form-group">

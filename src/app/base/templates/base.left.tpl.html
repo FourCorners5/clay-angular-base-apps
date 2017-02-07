@@ -3,7 +3,7 @@
     <nav ng-if="base.navItems.length">
         <h4 class="text-primary"><b>Navigation</b></h4>
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" ng-repeat="item in base.navItems | orderBy:'Display'" ui-sref-active="active">
+            <li role="presentation" ng-repeat="item in base.navItems" ui-sref-active="active">
                 <a href="" ui-sref="{{item.StateRef}}">{{item.Display}}</a>
             </li>
             <li ng-show="application.loading">

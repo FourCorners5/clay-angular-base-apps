@@ -14,7 +14,8 @@ angular.module('progradeApp', [
     'jcs-autoValidate',
     'naif.base64',
     'slick',
-    'ngClipboard'
+    'ngClipboard',
+    'ui.toggle'
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)
