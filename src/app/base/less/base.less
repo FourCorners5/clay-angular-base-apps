@@ -113,7 +113,12 @@
 }
 
 #BASE_LEFT {
-  border-right-width:1px;
+  background-image:url('../images/swoop.png');
+  background-repeat:no-repeat;
+  background-position: center bottom;
+  background-size:contain;
+  border-right-width:5px;
+  border-color:#0b151b;
   &.snap-drawer {
     width:@base-left-width;
   }
@@ -154,3 +159,20 @@
   }
 }
 
+.nav-pills > li > a {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: #fff;
+  font-weight:bold;
+  background-color: @brand-success;
+  border: 1px solid @brand-primary;
+}
+
+.text-white {
+  color: @text-white;
+}
