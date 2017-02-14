@@ -56,7 +56,8 @@ function BaseConfig($stateProvider) {
                 if ($auth.isAuthenticated()) {
                     return $resource("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $auth.getToken(), {}, {}).get();
                 }
-            }
+            },
+
         }
     };
 
@@ -69,6 +70,10 @@ function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
     vm.currentUser = CurrentUser;
+
+    if (!$auth.isAuthenticated()) {
+        $state.go('login');
+    }
 
     vm.logout = function () {
         $auth.logout().then(function () {
