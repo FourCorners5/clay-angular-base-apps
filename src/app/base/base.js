@@ -61,7 +61,7 @@ function BaseConfig($stateProvider) {
                         if (user.hd != 'prograde.com') {
                             $state.go('login');
                         }else{
-                            return CurrentUser;
+                            return user;
                         }
                     });
                 }
