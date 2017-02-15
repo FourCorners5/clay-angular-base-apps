@@ -44,6 +44,7 @@ function SatellizerConfig($authProvider) {
     $authProvider.google({
         clientId: '364424079629-6mpmh6b0l46t4kduceq3f5p8f9s3cs79.apps.googleusercontent.com',
         url: '/auth/google',
+        hd: 'prograde.com',
         authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
         redirectUri: window.location.origin + "/home/",
         requiredUrlParams: ['scope'],

@@ -53,10 +53,19 @@ function BaseConfig($stateProvider) {
                 return panelConfig;
             },
             CurrentUser: function ($auth, $state, $resource) {
-                if ($auth.isAuthenticated()) {
-                    return $resource("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $auth.getToken(), {}, {}).get();
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                } else {
+                    var user = $resource("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $auth.getToken(), {}, {}).get();
+                    user.$promise.then(function (userData) {
+                        if (user.hd != 'prograde.com') {
+                            $state.go('login');
+                        }else{
+                            return CurrentUser;
+                        }
+                    });
                 }
-            },
+            }
 
         }
     };
@@ -70,10 +79,6 @@ function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
     vm.currentUser = CurrentUser;
-
-    if (!$auth.isAuthenticated()) {
-        $state.go('login');
-    }
 
     vm.logout = function () {
         $auth.logout().then(function () {
