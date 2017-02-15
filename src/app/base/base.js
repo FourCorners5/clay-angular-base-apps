@@ -57,13 +57,7 @@ function BaseConfig($stateProvider) {
                     $state.go('login');
                 } else {
                     var user = $resource("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $auth.getToken(), {}, {}).get();
-                    user.$promise.then(function (userData) {
-                        if (user.hd != 'prograde.com') {
-                            $state.go('login');
-                        }else{
-                            return user;
-                        }
-                    });
+                    return user.$promise;
                 }
             }
 
@@ -78,7 +72,18 @@ function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $
     vm.navItems = NavItems;
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
+    vm.isAuthenticated = false;
     vm.currentUser = CurrentUser;
+
+    
+        if (vm.currentUser.hd != 'prograde.com') {
+            $state.go('login');
+        } else {
+            vm.isAuthenticated = true;
+        }
+
+
+
 
     vm.logout = function () {
         $auth.logout().then(function () {
