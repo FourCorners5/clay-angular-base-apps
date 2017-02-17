@@ -47,7 +47,7 @@ function BaseConfig($stateProvider) {
         views: baseViews,
         resolve: {
             NavItems: function () {
-                return [{ "Display": "Home", "StateRef": "home" }, { "Display": "Product Spotlight", "StateRef": "productspotlight" }, { "Display": "XL1 Reps", "StateRef": "xl1reps" }, { "Display": "Glatfelter Point Calculator", "StateRef": "cartoncounter" }, { "Display": "Product Reviews", "StateRef": "productreviews" }];
+                return [{ "Display": "Home", "StateRef": "home" }, { "Display": "Product Spotlight", "StateRef": "productspotlight" }, { "Display": "XL1 Reps", "StateRef": "xl1reps" }, { "Display": "Glatfelter Point Calculator", "StateRef": "cartoncounter" }, { "Display": "Product Reviews", "StateRef": "productreviews" }, { "Display": "Vote", "StateRef": "vote" }];
             },
             PanelConfig: function () {
                 return panelConfig;

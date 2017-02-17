@@ -16,7 +16,7 @@ function ProductSpotlightConfig($stateProvider) {
             data: { componentName: 'ProductSpotlight' },
             resolve: {
                 BuyerList: function ($http) {
-                    return $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/getallbuyerconfigs", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
+                    return $http({ url: "https://producttools.prowebservicehost.com/productspotlight/getallbuyerconfigs", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
                         if (function () {
                             try {
                                 JSON.parse(JSON.stringify(response.data));
@@ -41,7 +41,7 @@ function ProductSpotlightConfig($stateProvider) {
             controllerAs: 'productSpotlightBuyer',
             resolve: {
                 SelectedBuyer: function ($http, $stateParams) {
-                    return $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/getbuyerconfig", method: 'POST', data: { "key": "delighted", "ID": parseInt($stateParams.buyerid) } }).then(function (response) {
+                    return $http({ url: "https://producttools.prowebservicehost.com/productspotlight/getbuyerconfig", method: 'POST', data: { "key": "delighted", "ID": parseInt($stateParams.buyerid) } }).then(function (response) {
                         if (function () {
                             try {
                                 JSON.parse(JSON.stringify(response.data));
@@ -58,7 +58,7 @@ function ProductSpotlightConfig($stateProvider) {
                     });
                 },
                 Products: function ($http, $stateParams) {
-                    return $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/getallspotlightproducts", method: 'POST', data: { "key": "delighted", "ID": parseInt($stateParams.buyerid) } }).then(function (response) {
+                    return $http({ url: "https://producttools.prowebservicehost.com/productspotlight/getallspotlightproducts", method: 'POST', data: { "key": "delighted", "ID": parseInt($stateParams.buyerid) } }).then(function (response) {
                         if (function () {
                             try {
                                 JSON.parse(JSON.stringify(response.data));
@@ -94,7 +94,7 @@ function ProductSpotlightController($state, BuyerList, $http, toastr, $rootScope
 
     vm.saveBuyer = function () {
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/getallbuyerconfigs", method: 'PUT', data: { "key": "delighted", "Name": vm.newBuyer.Name } }).then(function (response) {
+        $http({ url: "https://producttools.prowebservicehost.com/productspotlight/getallbuyerconfigs", method: 'PUT', data: { "key": "delighted", "Name": vm.newBuyer.Name } }).then(function (response) {
             if (function () {
                 try {
                     JSON.parse(JSON.stringify(response.data));
@@ -117,7 +117,7 @@ function ProductSpotlightController($state, BuyerList, $http, toastr, $rootScope
         if (confirm("Are you sure you want to delete this buyer? Please notify the developers before doing so.")) {
 
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/deletebuyer", method: 'PUT', data: { "key": "delighted", "ID": id } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/productspotlight/deletebuyer", method: 'PUT', data: { "key": "delighted", "ID": id } }).then(function (response) {
                 if (response.status == 200) {
 
                     $rootScope.$broadcast('loadStop');
@@ -174,7 +174,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         if (confirm("Save changes?")) {
             $rootScope.$broadcast('loadStart');
             vm.changed = false;
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatebuyerconfig", method: 'PUT', data: { "key": "delighted", "ID": vm.data.Buyer.ID, "DisplaySeparators": vm.data.Buyer.DisplaySeparators, "DisplayArrows": vm.data.Buyer.DisplayArrows, "DisplayRatings": vm.data.Buyer.DisplayRatings, "MaximumDisplayTime": vm.data.Buyer.MaximumDisplayTime, "SeparatorColor": vm.data.Buyer.SeparatorColor, "Email": vm.data.Buyer.Email } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatebuyerconfig", method: 'PUT', data: { "key": "delighted", "ID": vm.data.Buyer.ID, "DisplaySeparators": vm.data.Buyer.DisplaySeparators, "DisplayArrows": vm.data.Buyer.DisplayArrows, "DisplayRatings": vm.data.Buyer.DisplayRatings, "MaximumDisplayTime": vm.data.Buyer.MaximumDisplayTime, "SeparatorColor": vm.data.Buyer.SeparatorColor, "Email": vm.data.Buyer.Email } }).then(function (response) {
                 if (response.status == 200) {
                     $state.go('.', {}, { reload: true });
                     toastr.success('Buyer Updated', 'Success');
@@ -199,9 +199,9 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         product.OrderBy--;
 
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
+        $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
             if (response.status == 200) {
-                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
+                $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
                     if (response.status == 200) {
                         toastr.success('Products Updated', 'Success');
                     }
@@ -229,9 +229,9 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         product.OrderBy++;
 
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
+        $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "OrderBy": product.OrderBy } }).then(function (response) {
             if (response.status == 200) {
-                $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
+                $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": theChosenOne.ID, "BuyerID": product.BuyerID, "OrderBy": theChosenOne.OrderBy } }).then(function (response) {
                     if (response.status == 200) {
                         toastr.success('Products Updated', 'Success');
                     }
@@ -261,7 +261,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
         vm.processing = true;
         $rootScope.$broadcast('loadStart');
         $http({
-            url: "https://rateproduct.prowebservicehost.com/productspotlight/createproduct", method: 'PUT', data: {
+            url: "https://producttools.prowebservicehost.com/productspotlight/createproduct", method: 'PUT', data: {
                 "BuyerID": vm.data.Buyer.ID,
                 "ProductID": vm.newProduct.ProductID,
                 "ProductName": vm.newProduct.ProductName,
@@ -287,7 +287,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
     vm.deleteProduct = function (product) {
         if (confirm("Are you sure you want to delete this product?")) {
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/deleteproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/productspotlight/deleteproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID } }).then(function (response) {
                 if (response.status == 200) {
                     $state.go('.', {}, { reload: true });
                     toastr.success('Product Deleted', 'Success');
@@ -326,7 +326,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
             product.Featured = false;
             vm.featuredCount--;
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Featured": product.Featured, "FeaturedSince": vm.today() } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Featured": product.Featured, "FeaturedSince": vm.today() } }).then(function (response) {
                 if (response.status == 200) {
                     //$state.go('.', {}, { reload: true });
                     product.FeaturedSince = vm.today();
@@ -343,7 +343,7 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
             product.Featured = true;
             vm.featuredCount++;
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Featured": product.Featured, "FeaturedSince": vm.today() } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/productspotlight/updatespotlightproduct", method: 'PUT', data: { "key": "delighted", "ID": product.ID, "BuyerID": product.BuyerID, "Featured": product.Featured, "FeaturedSince": vm.today() } }).then(function (response) {
                 if (response.status == 200) {
                     //$state.go('.', {}, { reload: true });
                     toastr.success('Product Updated', 'Success');
@@ -372,6 +372,6 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
     };
 
     vm.copyJavascript = function () {
-        ngClipboard.toClipboard('&lt;script src="http://rateproduct.prowebservicehost.com/assets/productspotlight.js"&gt;&lt;/script&gt;');
+        ngClipboard.toClipboard('&lt;script src="http://producttools.prowebservicehost.com/assets/productspotlight.js"&gt;&lt;/script&gt;');
     };
 }

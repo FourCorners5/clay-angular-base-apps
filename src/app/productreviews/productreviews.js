@@ -16,7 +16,7 @@ function ProductReviewsConfig($stateProvider) {
             data: { componentName: 'ProductReviews' },
             resolve: {
                 ReviewList: function ($http) {
-                    return $http({ url: "https://rateproduct.prowebservicehost.com/getallreviews", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
+                    return $http({ url: "https://producttools.prowebservicehost.com/getallreviews", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
                         if (function () {
                             try {
                                 JSON.parse(JSON.stringify(response.data));
@@ -57,7 +57,7 @@ function ProductReviewsController($state, ReviewList, $http, toastr, $rootScope)
         if (confirm("Are you sure you want to delete this review? This is irreversible.")) {
 
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/deletereview", method: 'PUT', data: { "key": "delighted", "ID": id } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/deletereview", method: 'PUT', data: { "key": "delighted", "ID": id } }).then(function (response) {
                 if (response.status == 200) {
 
                     $rootScope.$broadcast('loadStop');
@@ -73,7 +73,7 @@ function ProductReviewsController($state, ReviewList, $http, toastr, $rootScope)
 
     vm.refreshList = function () {
         $rootScope.$broadcast('loadStart');
-        $http({ url: "https://rateproduct.prowebservicehost.com/getallreviews", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
+        $http({ url: "https://producttools.prowebservicehost.com/getallreviews", method: 'POST', data: { "key": "delighted" } }).then(function (response) {
             if (function () {
                 try {
                     JSON.parse(JSON.stringify(response.data));
@@ -100,7 +100,7 @@ function ProductReviewsController($state, ReviewList, $http, toastr, $rootScope)
         if (confirm("Are you sure you want to " + (newValue ? "approve" : "disapprove") + " this review?")) {
 
             $rootScope.$broadcast('loadStart');
-            $http({ url: "https://rateproduct.prowebservicehost.com/updatereview", method: 'PUT', data: { "key": "delighted", "ID": id, "ReviewApproved": newValue } }).then(function (response) {
+            $http({ url: "https://producttools.prowebservicehost.com/updatereview", method: 'PUT', data: { "key": "delighted", "ID": id, "ReviewApproved": newValue } }).then(function (response) {
                 if (response.status == 200) {
 
                     $rootScope.$broadcast('loadStop');
