@@ -372,6 +372,6 @@ function ProductSpotlightBuyerController($state, SelectedBuyer, Products, $http,
     };
 
     vm.copyJavascript = function () {
-        ngClipboard.toClipboard('&lt;script src="http://producttools.prowebservicehost.com/assets/productspotlight.js"&gt;&lt;/script&gt;');
+        ngClipboard.toClipboard('&lt;script src="https://producttools.prowebservicehost.com/assets/productspotlight.js"&gt;&lt;/script&gt;');
     };
 }

@@ -16,7 +16,7 @@ function XL1RepsConfig($stateProvider) {
 			data: { componentName: 'XL1 Reps' },
 			resolve: {
 				RepList: function ($http) {
-					return $http.get('http://rateproduct.prowebservicehost.com/xl1reps').then(function (response) {
+					return $http.get('https://rateproduct.prowebservicehost.com/xl1reps').then(function (response) {
 						var jsonModel = response.data;
 						angular.forEach(jsonModel, function (company) {
 							angular.forEach(company.Locations, function (location) {
@@ -45,7 +45,7 @@ function XL1RepsController($state, $http, toastr, $rootScope, ngClipboard, $filt
 
 			var req = {
 				method: 'PUT',
-				url: 'http://rateproduct.prowebservicehost.com/xl1reps',
+				url: 'https://rateproduct.prowebservicehost.com/xl1reps',
 				headers: {
 					'Content-Type': 'application/json'
 				},

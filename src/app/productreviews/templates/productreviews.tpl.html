@@ -43,7 +43,7 @@
             <tbody>
                 <tr ng-repeat="review in productReviews.list | reviewstatusfilter:productReviews.statusFilter | filter:productReviews.searchFilter | orderBy:review.ID track by $index">
                     <td>{{review.ProductID}}</td>
-                    <td><img ng-src="{{'http://rateproduct.prowebservicehost.com/assets/' + review.Rating + '.png'}}" /></td>
+                    <td><img ng-src="{{'https://rateproduct.prowebservicehost.com/assets/' + review.Rating + '.png'}}" /></td>
                     <td>{{review.Review}}</td>
                     <td>{{review.UserEmail}}</td>
                     <td>{{productReviews.statusDisplay[review.ReviewApproved]}}</td>
