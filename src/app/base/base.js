@@ -75,22 +75,18 @@ function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $
     vm.isAuthenticated = false;
     vm.currentUser = CurrentUser;
 
-    
-        if (vm.currentUser.hd != 'prograde.com') {
-            $state.go('login');
-        } else {
-            vm.isAuthenticated = true;
-        }
-
-
-
-
-    vm.logout = function () {
+        vm.logout = function () {
         $auth.logout().then(function () {
             vm.currentUser = null;
             $state.go('login');
         });
     };
+
+    if (!vm.currentUser || (vm.currentUser && vm.currentUser.hd != 'prograde.com')) {
+        vm.logout();
+    } else {
+        vm.isAuthenticated = true;
+    }
 
     vm.snapOptions = {
         disable: (!vm.left && vm.right) ? 'left' : ((vm.left && !vm.right) ? 'right' : 'none')

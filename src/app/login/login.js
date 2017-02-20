@@ -21,7 +21,7 @@ function LoginController($state, $http, toastr, $rootScope, $scope, $auth) {
     vm.authenticate = function (provider) {
         $auth.authenticate(provider)
             .then(function (response) {
-                $state.go('home');
+                $state.go('home', { reload: true });
             })
             .catch(function (response) {
                 toastr.error(response);
