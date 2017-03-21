@@ -1,0 +1,60 @@
+<article id="COMPONENT_ProductReviews" ui-view class="container-fluid">
+    <section class="page-header">
+        <h3>
+            <button type="button" class="btn btn-primary" ui-sref="home"><i class="fa fa-arrow-left" /></button> <b>Product Review Administration</b>
+        </h3>
+    </section>
+
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label>Search:</label>
+            <div class="form-group">
+                <input type="search" class="form-control" placeholder="Search Reviews..." ng-model="productReviews.searchFilter" />
+            </div>
+        </div>
+        <div class="col-md-6 form-group">
+            <label style="display:block;">Status:</label>
+            <div class="btn-group">
+                <label class="btn btn-default" ng-model="productReviews.statusFilter.false" uib-btn-checkbox>Unreviewed</label>
+                <label class="btn btn-danger" ng-model="productReviews.statusFilter.null" uib-btn-checkbox>Disapproved</label>
+                <label class="btn btn-success" ng-model="productReviews.statusFilter.true" uib-btn-checkbox>Approved</label>
+            </div>
+
+        </div>
+    </div>
+
+    <!--====== LIST ======-->
+    <div class="no-matches" ng-if="!productReviews.list.length">
+        <b>No reviews found.</b>
+    </div>
+    <div ng-if="productReviews.list.length">
+        <table class="table table-hover oc-table-responsive" controlleras="productspotlight">
+            <thead>
+                <tr>
+                    <th>
+                        Product ID
+                    </th>
+                    <th>Rating</th>
+                    <th>Review</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="review in productReviews.list | reviewstatusfilter:productReviews.statusFilter | filter:productReviews.searchFilter | orderBy:review.ID track by $index">
+                    <td>{{review.ProductID}}</td>
+                    <td><img ng-src="{{'https://rateproduct.prowebservicehost.com/assets/' + review.Rating + '.png'}}" /></td>
+                    <td>{{review.Review}}</td>
+                    <td>{{review.UserEmail}}</td>
+                    <td>{{productReviews.statusDisplay[review.ReviewApproved]}}</td>
+                    <td class="actions-cell">
+                        <button ng-click="productReviews.updateReview(review.id, true)" class="btn btn-success btn-sm" ng-disabled="review.ReviewApproved">Approve Review <i class="fa fa-floppy" /></button>
+                        <button ng-click="productReviews.updateReview(review.id, false)" class="btn btn-primary btn-sm" ng-disabled="review.ReviewApproved === null">Disapprove Review <i class="fa fa-floppy" /></button>
+                        <button ng-click="productReviews.deleteReview(review.id)" class="btn btn-danger btn-sm"><i class="fa fa-trash" /></button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>

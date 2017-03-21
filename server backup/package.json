@@ -1,0 +1,19 @@
+{
+  "name": "rateproduct",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "clayton&drew",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "nodemailer": "^3.0.2",
+    "nodemailer-plugin-inline-base64": "^2.0.0",
+    "tedious": "^1.14.0"
+  }
+}
