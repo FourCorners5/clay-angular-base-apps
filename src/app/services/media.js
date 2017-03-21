@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 angular.module('clayApp')
-=======
-angular.module('progradeApp')
->>>>>>> refs/remotes/prograde-viewsource/internal-administration-tools
     .factory('$media', mediaFactory)
     .constant('MEDIA', MEDIA_CONSTANT)
     .constant('MEDIA_PRIORITY', MEDIA_PRIORITY_CONSTANT);

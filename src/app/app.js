@@ -67,10 +67,7 @@ function SatellizerConfig($authProvider) {
 
 function AppCtrl($rootScope, $state, $q, toastr, $auth) {
     var vm = this;
-<<<<<<< HEAD
-=======
-    var appname = "Prograde Internal Administration"
->>>>>>> refs/remotes/prograde-viewsource/internal-administration-tools
+    var appname = "Clayton's AngularJS Base App"
 
     $rootScope.$on('loadStart', function () {
         vm.loading = true;
@@ -78,8 +75,6 @@ function AppCtrl($rootScope, $state, $q, toastr, $auth) {
     $rootScope.$on('loadStop', function () {
         vm.loading = false;
     });
-<<<<<<< HEAD
-=======
 
     function cleanLoadingIndicators() {
         if (vm.contentLoading && vm.contentLoading.promise && !vm.contentLoading.promise.$cgBusyFulfilled) vm.contentLoading.resolve(); //resolve leftover loading promises
@@ -111,5 +106,4 @@ function AppCtrl($rootScope, $state, $q, toastr, $auth) {
         cleanLoadingIndicators();
         console.log(error);
     });
->>>>>>> refs/remotes/prograde-viewsource/internal-administration-tools
 }

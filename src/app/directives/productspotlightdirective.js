@@ -1,4 +1,4 @@
-angular.module('progradeApp').directive('productspotlight', ['$http', '$rootScope', function ($http, $rootScope) {
+angular.module('clayApp').directive('productspotlight', ['$http', '$rootScope', function ($http, $rootScope) {
   var obj = {
     restrict: 'E',
     scope: false,

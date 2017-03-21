@@ -1,4 +1,4 @@
-angular.module('progradeApp')
+angular.module('clayApp')
 
 	.config(XL1RepsConfig)
 	.controller('XL1RepsCtrl', XL1RepsController)
