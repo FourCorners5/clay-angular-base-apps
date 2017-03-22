@@ -8,7 +8,6 @@ const fs = require('fs');
 const TYPES = require('tedious').TYPES;
 const Request = require('tedious').Request;
 const config = require('./sql.config');
-//app.use(bodyParser.json());
 
 module.exports = (function () {
     'use strict';
@@ -47,16 +46,12 @@ module.exports = (function () {
             });
 
             request.on('doneInProc', function (rowCount, more, rows) {
-                // you can do transformations and such here....
                 rows.forEach(function (columns) {
                     var rowObject = {};
                     columns.forEach(function (column) {
                         rowObject[column.metadata.colName] = column.value;
                     });
                     jsonArray.push(rowObject);
-                    //response.json(jsonArray);
-                    //response.end();
-                    //connection.close();
                 }, function () {
                     //hacky - this keeps node alive while the async function finshes, 
                     //All of this SHOULD be in a seperate method but, can't spend anymore time on this now... c'est la vie'
@@ -66,7 +61,7 @@ module.exports = (function () {
             });
 
             reviewRequest.on('doneInProc', function (rowCount, more, rows) {
-                // you can do transformations and such here....
+                //do transformations and such here....
                 var reviewArray = [];
                 rows.forEach(function (columns) {
                     var rowObject = {};
@@ -75,8 +70,6 @@ module.exports = (function () {
                     });
                     reviewArray.push(rowObject);
                 }, function () {
-                    //hacky - this keeps node alive while the async function finshes, 
-                    //All of this SHOULD be in a seperate method but, can't spend anymore time on this now... c'est la vie'
                     return true;
                 });
                 jsonArray.push(reviewArray);
@@ -129,29 +122,6 @@ module.exports = (function () {
                 response.status(200);
                 response.end();
             });
-
-            /*
-            request.on('doneInProc', function(rowCount, more, rows) {
-                // you can do transformations and such here....
-                var jsonArray = []
-                rows.forEach(function(columns) {
-                    var rowObject = {};
-                    columns.forEach(function(column) {
-                        rowObject[column.metadata.colName] = column.value;
-                    });
-                    jsonArray.push(rowObject);
-                    response.json(jsonArray);
-                    response.end();
-                    connection.close();
-                }, function() {
-                    //hacky - this keeps node alive while the async function finshes, 
-                    //All of this SHOULD be in a seperate method but, can't spend anymore time on this now... c'est la vie'
-                    return true;
-                });
-    
-            });
-    
-            */
 
             //Set Connection VAR
             var connection = new Connection(config);

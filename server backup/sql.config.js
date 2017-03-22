@@ -1,7 +1,6 @@
 module.exports = (function(){
 
 
-
 	/*	return config = {
 		userName: 'username',
 		password: 'password',

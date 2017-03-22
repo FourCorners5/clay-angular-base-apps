@@ -1,5 +1,5 @@
 {
-  "name": "rategame",
+  "name": "ClayPI",
   "version": "0.0.1",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "clayton&drew",
+  "author": "clayton",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
