@@ -13,15 +13,14 @@ angular.module('clayApp', [
     'cgBusy',
     'jcs-autoValidate',
     'naif.base64',
-    'slick',
     'ngClipboard',
     'ui.toggle',
-    'satellizer'
+    angularDragula(angular)
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)
     .config(ErrorHandling)
-    .config(SatellizerConfig);
+    ;
 
 function Routing($urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
     $urlMatcherFactoryProvider.strictMode(false);
@@ -40,32 +39,7 @@ function ErrorHandling($provide) {
     }
 }
 
-function SatellizerConfig($authProvider) {
-    $authProvider.google({
-        clientId: '364424079629-6mpmh6b0l46t4kduceq3f5p8f9s3cs79.apps.googleusercontent.com',
-        url: '/auth/google',
-        hd: 'prograde.com',
-        authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-        redirectUri: window.location.origin + "/home/",
-        requiredUrlParams: ['scope'],
-        optionalUrlParams: ['display'],
-        scope: ['profile', 'email'],
-        scopePrefix: 'openid',
-        scopeDelimiter: ' ',
-        display: 'popup',
-        oauthType: '2.0',
-        responseType: 'token',
-        popupOptions: { width: 452, height: 633 },
-        state: function () {
-            return (Date.now() + "" + Math.random()).replace(".", "");
-        },
-        nonce: function () {
-            return (Date.now() + "" + Math.random()).replace(".", "");
-        }
-    });
-}
-
-function AppCtrl($rootScope, $state, $q, toastr, $auth) {
+function AppCtrl($rootScope, $state, $q, toastr) {
     var vm = this;
     var appname = "Clayton's AngularJS Base App"
 
@@ -88,9 +62,6 @@ function AppCtrl($rootScope, $state, $q, toastr, $auth) {
         toState.data && toState.data.loadingMessage ? defer.message = toState.data.loadingMessage : defer.message = null;
         defer.templateUrl = 'base/templates/view.loading.tpl.html';
         vm.contentLoading = defer;
-
-
-
     });
 
     $rootScope.$on('$stateChangeSuccess', function (e, toState) {

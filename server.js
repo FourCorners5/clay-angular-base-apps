@@ -7,8 +7,8 @@ var express = require('express'),
     port = process.env.PORT || 3000;
 
 switch(env) {
-    case 'production':
-        console.log('**** Production ****');
+    case 'gameion':
+        console.log('**** Gameion ****');
         app.use(express.static(config.root + config.compile.replace('.', '')));
         app.get('/*', function(req, res) {
             res.sendFile(config.root + config.compile.replace('.', '') + 'index.html');

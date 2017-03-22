@@ -10,4 +10,4 @@ Client Notes and Processes
 
 Voting app
 
-Move rateproduct server
+Move rategame server

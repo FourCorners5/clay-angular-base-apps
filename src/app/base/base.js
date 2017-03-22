@@ -47,46 +47,26 @@ function BaseConfig($stateProvider) {
         views: baseViews,
         resolve: {
             NavItems: function () {
-                return [{ "Display": "Home", "StateRef": "home" }, { "Display": "Product Spotlight", "StateRef": "productspotlight" }, { "Display": "XL1 Reps", "StateRef": "xl1reps" }, { "Display": "Glatfelter Point Calculator", "StateRef": "cartoncounter" }, { "Display": "Product Reviews", "StateRef": "productreviews" }, { "Display": "Vote", "StateRef": "vote" }];
+                return [{ "Display": "Home", "StateRef": "home" },{ "Display": "Games", "StateRef": "games" }];
             },
             PanelConfig: function () {
                 return panelConfig;
-            },
-            CurrentUser: function ($auth, $state, $resource) {
-                if (!$auth.isAuthenticated()) {
-                    $state.go('login');
-                } else {
-                    var user = $resource("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $auth.getToken(), {}, {}).get();
-                    return user.$promise;
-                }
             }
-
         }
     };
 
     $stateProvider.state('base', baseState);
 }
 
-function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $auth, CurrentUser, $state) {
+function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $state) {
     var vm = this;
     vm.navItems = NavItems;
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
-    vm.isAuthenticated = false;
-    vm.currentUser = CurrentUser;
 
-        vm.logout = function () {
-        $auth.logout().then(function () {
-            vm.currentUser = null;
-            $state.go('login');
-        });
+    vm.logout = function () {
+
     };
-
-    if (!vm.currentUser || (vm.currentUser && vm.currentUser.hd != 'prograde.com')) {
-        vm.logout();
-    } else {
-        vm.isAuthenticated = true;
-    }
 
     vm.snapOptions = {
         disable: (!vm.left && vm.right) ? 'left' : ((vm.left && !vm.right) ? 'right' : 'none')

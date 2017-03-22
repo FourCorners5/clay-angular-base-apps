@@ -86,9 +86,9 @@ module.exports = (function () {
             });
 
             //Add Params
-            request.addParameter('productId', TYPES.VarChar, req.product);
+            request.addParameter('gameId', TYPES.VarChar, req.game);
             request.addParameter('UserEmail', TYPES.VarChar, req.email);
-            reviewRequest.addParameter('productId', TYPES.VarChar, req.product);
+            reviewRequest.addParameter('gameId', TYPES.VarChar, req.game);
 
             //Set Connection VAR
             var connection = new Connection(config);
@@ -117,7 +117,7 @@ module.exports = (function () {
 
         if (req.key == 'delighted') {
             //Create Request OBJ
-            var request = new Request("INSERT INTO Ratings (ProductID, Rating, UserEmail, Review) Values('" + req.product + "', " + req.rating + ", '" + req.email + "', '" + req.review + "')", function (err, rowCount, rows) {
+            var request = new Request("INSERT INTO Ratings (GameID, Rating, UserEmail, Review) Values('" + req.game + "', " + req.rating + ", '" + req.email + "', '" + req.review + "')", function (err, rowCount, rows) {
                 if (err) {
                     connection.close();
                     console.log(err);

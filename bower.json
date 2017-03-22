@@ -40,10 +40,8 @@
     "ngClipboard": "./custom_components/ngClipboard",
     "bootstrap-colorpicker": "^2.4.0",
     "angular-bootstrap-checkbox": "^0.5.0",
-    "slick": "./custom_components/slick-carousel",
-    "angular-slick": "./custom_components/angular-slick",
-    "angular-bootstrap-toggle": "^0.1.2",
-    "satellizer": "^0.15.5"
+    "angular-dragula": "./custom_components/angular-dragula",
+    "angular-bootstrap-toggle": "^0.1.2"
   },
   "devDependencies": {
     "angular-mocks": "1.5.7"

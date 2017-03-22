@@ -1,14 +1,16 @@
 module.exports = (function(){
 
-	return config = {
-		userName: 'portalUser',
-		password: 'create~me',
-		server: '172.23.33.108',
+
+
+	/*	return config = {
+		userName: 'username',
+		password: 'password',
+		server: 'hostname',
 		options: {
-			database: 'Four51_ProductRatings',
-			instanceName: 'sqlserv8',
+			database: 'dbname',
+			instanceName: 'instance',
 			rowCollectionOnDone: true
 		}
-	};
+	}; */
 
 })();

@@ -50,7 +50,7 @@
             delayTime: 1,
             env: {
                 'PORT': port,
-                'NODE_ENV': isDev ? 'dev' : 'production'
+                'NODE_ENV': isDev ? 'dev' : 'gameion'
             },
             watch: ['./server.js']
         })

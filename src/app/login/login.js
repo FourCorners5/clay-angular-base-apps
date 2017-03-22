@@ -1,4 +1,4 @@
-angular.module('clayApp')
+/* angular.module('clayApp')
 
     .config(LoginConfig)
     .controller('LoginCtrl', LoginController)
@@ -15,16 +15,7 @@ function LoginConfig($stateProvider) {
         });
 }
 
-function LoginController($state, $http, toastr, $rootScope, $scope, $auth) {
+function LoginController($state, $http, toastr) {
     var vm = this;
 
-    vm.authenticate = function (provider) {
-        $auth.authenticate(provider)
-            .then(function (response) {
-                $state.go('home', { reload: true });
-            })
-            .catch(function (response) {
-                toastr.error(response);
-            });
-    };
-}
+} */
