@@ -20,6 +20,7 @@ module.exports = {
     appCss: assets + 'styles/',
     appFonts: assets + 'fonts/',
     appImages: assets + 'images/',
+    appSounds: assets + 'sounds/',
     root: root,
     gulp: gulp_dir,
     index: source + index,
@@ -53,7 +54,8 @@ module.exports = {
         build + '**/*.css',
         source + '**/*.css',
         assets + '**/*.png',
-        assets + '**/*.jpg'
+        assets + '**/*.jpg',
+        assets + '**/*.mp3'
     ],
     wrapper: {
         header: '(function() {\n"use strict";\n',
@@ -62,10 +64,10 @@ module.exports = {
     templateCacheSettings: {
         standalone: false,
         moduleSystem: 'IIFE',
-        module: 'clayApp'
+        module: 'jcmApp'
     },
     ngConstantSettings: {
-        name: 'clayApp',
+        name: 'jcmApp',
         deps: false,
         constants: {
         }

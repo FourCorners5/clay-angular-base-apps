@@ -47,7 +47,7 @@ function BaseConfig($stateProvider) {
         views: baseViews,
         resolve: {
             NavItems: function () {
-                return [{ "Display": "Home", "StateRef": "home" },{ "Display": "Games", "StateRef": "games" }];
+                return [{ "Display": "Home", "StateRef": "home" }, { "Display": "Reviews", "StateRef": "reviews" }];
             },
             PanelConfig: function () {
                 return panelConfig;
@@ -58,11 +58,17 @@ function BaseConfig($stateProvider) {
     $stateProvider.state('base', baseState);
 }
 
-function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $state) {
+function BaseController(NavItems, PanelConfig, $media, snapRemote, $rootScope, $state, deviceDetector) {
     var vm = this;
     vm.navItems = NavItems;
     vm.left = PanelConfig.left;
     vm.right = PanelConfig.right;
+
+    /*
+        if(deviceDetector.browser == 'ie'){
+            alert("This site does not support Internet Explorer and may not display correctly. Please upgrade to Chrome, Firefox, or Edge.");
+        }
+    */
 
     vm.logout = function () {
 

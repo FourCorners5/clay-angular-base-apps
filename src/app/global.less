@@ -8,10 +8,95 @@ html {
 }
 
 body {
+  background-image:url('../images/bg.png');
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-position: left bottom;
   height:100%;
   width:100%;
   overflow:hidden;
   position:relative;
+  font-family: 'Lato', sans-serif;
+  font-size:12pt;
+}
+
+
+.row-eq {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row-eq > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-eq-content{
+   flex-direction:column;
+   display: flex;
+}
+
+.d-inline{
+  display:inline;
+}
+
+.row-eq-content p, .row-eq-content .panel-body{
+   flex: 1;
+}
+
+.btn-bottom{
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-bottom > a {
+  width:100%;
+}
+
+.row-eq > div > div, .row-eq > div > img-border-panel {
+  height:100%;
+}
+
+.pointer{
+  cursor:pointer;
+}
+
+.fa-ellipsis-h{
+  color:#bbb;
+  margin-left:10px;
+}
+
+.carousel-control.right, .carousel-control.left{
+  background-image:none;
+}
+
+.carousel-indicators{
+  display:none;
+}
+
+.slide-description{
+  margin-top:10px;
+  min-height:100px;
+}
+
+.margin-center{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.panel{
+  border-bottom:4px solid @gray-light;
+  box-shadow: 0px 5px 5px #265c9f;
+}
+
+.panel-footer a, .panel-footer btn, .panel-footer button {
+  font-weight:bold;
+  font-size:16pt;
+  border-bottom:4px solid @button-bottom;
+}
+
+.btn{
+  white-space: normal;
 }
 
 main {
@@ -36,7 +121,7 @@ main {
 }
 
 .container {
-  max-width:100%;
+  max-width:800px;
 }
 
 .pagination {

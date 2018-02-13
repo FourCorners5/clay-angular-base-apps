@@ -1,4 +1,3 @@
-
 //== Colors
 @gray-base: desaturate(shade(@brand-secondary,86%),100%);
 @gray-darker: tint(@gray-base, 5%);
@@ -8,7 +7,7 @@
 @gray-lighter: tint(@gray-base, 95%);
 @white: #fff;
 
-@brand-primary: #3a79c9;;
+@brand-primary: #3a79c9;
 @brand-secondary: @brand-primary;
 
 @brand-success:         #d2ab41;
@@ -17,7 +16,7 @@
 @brand-danger:          #E13D00;
 
 //== Scaffolding
-@body-bg: #FFFFFF;
+@body-bg: #3a79c9;
 @text-color: @gray-dark;
 @link-hover-color: darken(@link-color, 15%);
 
@@ -27,6 +26,7 @@
 @table-border-color:            @gray-light;
 
 //== Buttons
+@button-bottom:                  darken(@brand-success,10%);
 @btn-default-color:              @gray-darker;
 @btn-default-bg:                 #fff;
 @btn-default-border:             @gray-light;
@@ -116,12 +116,12 @@
 @list-group-link-heading-color: @gray-darker;
 
 //== Panels
-@panel-bg:                    @gray-lighter;
+@panel-bg:                    @white;
 @panel-inner-border:          @gray-lighter;
-@panel-footer-bg:             @gray-lighter;
+@panel-footer-bg:             @white;
 @panel-default-text:          @gray-darker;
 @panel-default-border:        @gray-light;
-@panel-default-heading-bg:    @gray-light;
+@panel-default-heading-bg:    @white;
 
 //== Thumbnails
 @thumbnail-border:            @gray-light;

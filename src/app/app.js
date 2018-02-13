@@ -4,6 +4,7 @@ angular.module('clayApp', [
     'ngMessages',
     'ngResource',
     'ngTouch',
+    'ngCookies',
     'snap',
     'ui.tree',
     'ui.router',
@@ -15,7 +16,20 @@ angular.module('clayApp', [
     'naif.base64',
     'ngClipboard',
     'ui.toggle',
-    angularDragula(angular)
+    'clayfooter',
+    'claynav',
+    'jplayer',
+    angularDragula(angular),
+    'lz-string',
+    'forms',
+    'confetti',
+    'updateMeta',
+    'base64',
+    'ng.deviceDetector',
+    'customvalidation',
+    'imgBorderPanel',
+    'countdown',
+    'ng.deviceDetector',
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)
@@ -24,7 +38,7 @@ angular.module('clayApp', [
 
 function Routing($urlRouterProvider, $urlMatcherFactoryProvider, $locationProvider) {
     $urlMatcherFactoryProvider.strictMode(false);
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
 }
 
@@ -41,7 +55,7 @@ function ErrorHandling($provide) {
 
 function AppCtrl($rootScope, $state, $q, toastr) {
     var vm = this;
-    var appname = "Clayton's AngularJS Base App"
+    var appname = "Clay's Angular Base App"
 
     $rootScope.$on('loadStart', function () {
         vm.loading = true;
@@ -67,7 +81,7 @@ function AppCtrl($rootScope, $state, $q, toastr) {
     $rootScope.$on('$stateChangeSuccess', function (e, toState) {
         cleanLoadingIndicators();
         if (toState.data && toState.data.componentName) {
-            vm.title = toState.data.componentName + ' | ' + appname;
+            vm.title = toState.data.componentName;
         } else {
             vm.title = appname;
         }
