@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/clayt/clay-angular-app#readme",
   "dependencies": {
-    "angular-resource": "^1.5.8",
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "bower": "1.7.7",
