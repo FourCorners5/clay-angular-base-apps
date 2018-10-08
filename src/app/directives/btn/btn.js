@@ -82,13 +82,15 @@ function btnSuccess() {
         templateUrl: 'directives/btn/templates/btn.tpl.html',
         replace: true,
         scope: {
-            btnSuccess: true,
             btnBlock: '=?',
             ngModel: '=?',
             icon: '@?'
         },
         transclude: true,
-        link: btnLinkFn
+        link: btnLinkFn,
+        controller: function ($scope) {
+            $scope.btnSuccess = true;
+        }
     }
 }
 

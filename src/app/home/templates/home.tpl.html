@@ -52,9 +52,16 @@
                             <btn btn-success="home.btnDirective" ng-model="home.btnDirective">Success Button
                                 <icon fa="home" />
                             </btn>
-                            <btn btn-danger="home.btnDirective" ng-model="home.btnDirective">Danger Button
-                                <icon true="stop" false="play" ng-model="home.btnDirective" />
+                            <btn btn-danger="home.btnDirective" ng-model="home.btnDirective">
+                                Danger Button <icon true="stop" false="play" ng-model="home.btnDirective" />
                             </btn>
+                            <!-- Used to look like this:
+                            
+                            <div class="btn" ng-click="home.btnDirective = !home.btnDirective" ng-class="{'btn-success': home.btnDirective, 'btn-default': !home.btnDirective}">
+                                Danger Button <i class="fa" ng-class="{'fa-stop': home.btnDirective, 'fa-play': !home.btnDirective}" />
+                            </div>
+                            
+                            -->
                         </div>
                         <br /><br /><btn btn-primary>Primary Button</btn>
                         <br /><btn btn-link>Link Button</btn>
