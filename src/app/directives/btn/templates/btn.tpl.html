@@ -1,0 +1,4 @@
+<div class="btn" ng-class="{'btn-success': btnSuccess, 'btn-primary': btnPrimary, 'btn-warning': btnWarning, 'btn-info': btnInfo, 'btn-secondary': btnSecondary, 'btn-danger': btnDanger, 'btn-link': btnLink, 'btn-block': btnBlock, 'btn-default': btnDefault || (!btnSuccess && !btnPrimary && !btnDefault && !btnWarning && !btnInfo && !btnSecondary && !btnDanger && !btnLink) }"
+    ng-transclude>
+    <i class="fa fa-{{icon}}" ng-if="icon" />
+</div>

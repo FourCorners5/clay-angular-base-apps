@@ -30,6 +30,7 @@ angular.module('clayApp', [
     'imgBorderPanel',
     'countdown',
     'ng.deviceDetector',
+    'btn'
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)

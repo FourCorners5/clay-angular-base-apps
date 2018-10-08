@@ -15,10 +15,13 @@ function HomeConfig($stateProvider) {
 		;
 }
 
-function HomeController($sce) {
-	var vm = this;
+function HomeController($sce, $rootScope) {
+	var vm = $rootScope.currentScope = this;
 	vm.trustify = function (input) {
 		return $sce.trustAsResourceUrl(input);
+	};
+	vm.test = function(){
+		window.alert('test')
 	};
 	vm.content = [
 		{
