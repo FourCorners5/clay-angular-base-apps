@@ -1,5 +1,5 @@
 {
-  "name": "clay-angular-app",
+  "name": "clay-angular-base-apps",
   "version": "1.0.0",
   "description": "Clayton's AngularJS seed",
   "main": "app.js",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clayt/clay-angular-app.git"
+    "url": "git+https://github.com/clayt/clay-angular-base-apps.git"
   },
   "author": "Clayton Belcher",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clayt/clay-angular-app/issues"
+    "url": "https://github.com/clayt/clay-angular-base-apps/issues"
   },
-  "homepage": "https://github.com/clayt/clay-angular-app#readme",
+  "homepage": "https://github.com/clayt/clay-angular-base-apps#readme",
   "dependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",

@@ -1,0 +1,11 @@
+*.sw*
+*~
+build/
+compile/
+!gulp/build/
+!gulp/compile/
+node_modules/
+bower_components/
+errorShots/
+.idea
+npm-debug.log

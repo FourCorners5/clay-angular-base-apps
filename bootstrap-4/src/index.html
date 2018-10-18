@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="clayApp" ng-controller="AppCtrl as application">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title ng-bind="application.title">Clay's Angular Base App</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+
+  <script>
+    var liveLocation = ''; //Change string to live subdirectory, no leading or trailing slashes.
+    if (document.location.toString().split('/')[2].split(':')[0] == 'localhost') { document.write("<base href='/' />"); } else if (liveLocation == '') { document.write("<base href='" + '//' + document.location.host + "/' />"); } else { document.write("<base href='" + '//' + document.location.host + '/' + liveLocation + "/' />"); }
+  </script>
+
+  <!-- bower:css -->
+  <!-- endinject -->
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+
+<body>
+  <ui-view>
+    <div class="indicator">
+      <div class="loading">
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+        -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+        <div class="loading-bar odd"></div>
+        <!--
+      -->
+        <div class="loading-bar even"></div>
+        <!--
+      -->
+      </div>
+      <div class="message">Loading...</div>
+    </div>
+  </ui-view>
+
+  <!-- bower:js -->
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+</body>
+
+</html>

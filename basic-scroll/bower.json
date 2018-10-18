@@ -1,5 +1,5 @@
 {
-  "name": "clay-angular-app",
+  "name": "clay-angular-base-apps",
   "authors": [
     "Clayton Belcher"
   ],
@@ -8,9 +8,9 @@
   "moduleType": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/clayt/clay-angular-app/issues"
+    "url": "https://github.com/clayt/clay-angular-base-apps/issues"
   },
-  "homepage": "https://github.com/clayt/clay-angular-app#readme",
+  "homepage": "https://github.com/clayt/clay-angular-base-apps#readme",
   "ignore": [
     "**/.*",
     "node_modules",
