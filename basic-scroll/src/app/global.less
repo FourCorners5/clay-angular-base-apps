@@ -1,0 +1,654 @@
+html {
+  height:100vh;
+  width:100vw;
+  max-width:@app-container-size;
+  margin:0 auto;
+  overflow:hidden;
+  background-color:@html-bg;
+}
+
+body {
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:12pt;
+}
+
+#BASE{
+  margin-top:120px;
+}
+
+.word-break{
+  word-break:break-word;
+}
+
+.d-inline-block{
+  display:inline-block;
+}
+
+.d-block{
+  display:block;
+}
+
+.mb-0px{
+  margin-bottom:0px;
+}
+
+.mt-0px{
+  margin-top:0px;
+}
+
+.mt-80px{
+  margin-top: 80px;
+}
+.mw-300px{
+  width:100%;
+  max-width:300px;
+}
+
+.ml-5px{
+  margin-left:5px;
+}
+
+.mr-5px{
+  margin-right:5px;
+}
+
+.m-5px{
+  margin:5px;
+}
+
+.m-15px{
+  margin:15px;
+}
+
+.mb-5px{
+  margin-bottom:5px;
+}
+
+.mt-2px{
+  margin-top:2px;
+}
+
+.mt-5px{
+  margin-top:5px;
+}
+
+.p-15px{
+  padding:15px;
+}
+
+.m-2px{
+  margin:2px;
+}
+
+.full-width{
+  width:100%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+	  margin:2px;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.form-control{
+  color:black;
+}
+
+.pointer{
+  cursor:pointer;
+}
+
+.margin-center{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+main {
+  flex:1 1 auto;
+  overflow:hidden;
+  position:relative;
+  > [id^="COMPONENT_"] { //Make the component container element fill the entire <main> for background styles
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    overflow-y:auto;
+    overflow-x:hidden;
+  }
+}
+
+.container {
+  max-width:800px;
+}
+
+.pagination {
+  margin:0;
+}
+
+//TABLES WITH FIXED HEADERS
+.table-fixed-header {
+  position:relative;
+  padding-top:@table-header-height;
+  margin-bottom:@line-height-computed;
+  overflow:hidden;
+  .table-header-bg {
+    position:absolute;
+    left:0; right:0; top:0;
+    height:@table-header-height;
+    background:@table-bg;
+    border:1px solid @table-border-color;
+    border-bottom-width:2px;
+  }
+  .table-container {
+    background-color:@table-bg;
+    overflow-y:auto;
+    overflow-x:hidden;
+    max-height:@infinite-scroll-size;
+    border: 1px solid @table-border-color;
+    border-top-width:0;
+    table {
+      border-spacing:0;
+      margin-bottom:0;
+    }
+    td {
+      border:1px solid @table-border-color;
+      vertical-align:middle;
+      &:first-child {
+        border-left:none;
+      }
+      &:last-child {
+        border-left:none;
+      }
+    }
+    th {
+      height: 0;
+      line-height: 0;
+      padding: 0 25px;
+      color: transparent;
+      border: none;
+      white-space: nowrap;
+      span {
+        max-height:0;
+        height:0;
+        line-height:0;
+        margin:0;
+        padding:0;
+      }
+      div{
+        position: absolute;
+        background: transparent;
+        padding:@table-cell-padding;
+        color: @text-color;
+        top: 0;
+        margin-left: -25px;
+        line-height: @line-height-base;
+        vertical-align: bottom;
+        border-left:1px solid @table-border-color;
+      }
+      &:first-child div{
+        border: none;
+      }
+    }
+    tbody tr {
+      &:first-child {
+        td {
+          border-top:none;
+        }
+      }
+      &:last-child {
+        td {
+          border-bottom:none;
+        }
+      }
+    }
+  }
+}
+colgroup {
+  > col {
+    .action-column {
+      width:70px;
+    }
+  }
+}
+
+.table > tbody > tr {
+  > td {
+	&.actions-cell {
+	  text-align:center;
+	  white-space: nowrap;
+      @media(min-width:@screen-sm-min) {
+        text-align: right;
+        width: 1%;
+      }
+	}
+  }
+}
+
+// No matches message
+.no-matches {
+  @media(min-width:@screen-sm-min) {
+    margin-top:15px;
+  }
+  &:extend(.well);
+  text-align:center;
+}
+
+// cb Responsive Tables
+// commandeered from http://codepen.io/pixelchar/pen/rfuqK
+.cb-table-responsive {
+  &.table-bordered {
+    border:none;
+    & > tbody > tr{
+      & > th {
+        border:none;
+      }
+      & > td {
+        border-width:1px 0 0 0;
+      }
+    }
+  }
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  thead {
+    // Accessibly hide <thead> on narrow viewports
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+  }
+
+  // Set these items to display: block for narrow viewports
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    white-space: normal;
+  }
+
+  tr {
+    &:extend(.panel); //Mobile table row looks like a bootstrap panel
+    border-color: @panel-default-border;
+    overflow:hidden;
+  }
+
+  tbody {
+    & > tr > th {
+      border-top: none;
+      background-color: @panel-default-heading-bg;
+    }
+    td {
+      &[data-title] {
+        .clearfix(); //Clearfix solution for empty table cells on mobile
+        &:before {
+          content: attr(data-title);
+          float: left;
+          color: @gray-light;
+        }
+      }
+      @media(max-width:@screen-sm-min) {
+        text-align:right;
+      }
+    }
+  }
+
+  @media(min-width:@screen-sm-min) {
+    // Condensed tables on desktop
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          padding: @table-condensed-cell-padding;
+        }
+      }
+    }
+    &.table-bordered {
+      border:1px solid @table-border-color;
+      & > tbody > tr{
+        & > th {
+          border:1px solid @table-border-color;
+        }
+        & > td {
+          border-width:1px;
+        }
+      }
+    }
+    thead {
+      position: relative;
+      clip: auto;
+      height: auto;
+      width: auto;
+      overflow: auto;
+    }
+    tr {
+      display: table-row;
+      margin-bottom: 0;
+      border: none;
+      background-color:transparent;
+    }
+    th,
+    td {
+      // Undo display: block
+      display: table-cell;
+    }
+    tbody {
+      display:table-row-group;
+      tr {
+        display:table-row;
+      }
+      & > tr > th {
+        border-top: 1px solid @table-border-color;
+        background-color: transparent;
+      }
+      td {
+        &[data-title]:before {
+          content: none;
+        }
+      }
+    }
+  }
+  .fa-circle {
+    color:@gray-light;
+    &.active {
+      color:@brand-success;
+    }
+  }
+}
+
+// Specific to this site's theme (Not Bootstrap theme!)
+
+p.small {
+	font-size: 16px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+	color: @brand-success;
+  outline: none;
+  text-decoration:none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+hr.star-light,
+hr.star-primary {
+    padding: 0;
+    border: none;
+    border-top: solid 5px;
+    text-align: center;
+    max-width: 250px;
+    margin: 25px auto 30px;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "\f005";
+    font-family: FontAwesome;
+    display: inline-block;
+    position: relative;
+    top: -0.8em;
+    font-size: 2em;
+    padding: 0 0.25em;
+}
+
+hr.star-light {
+    border-color: white;
+}
+
+hr.star-light:after {
+    background-color: @brand-success;
+    color: white;
+}
+
+hr.star-primary {
+    border-color: @brand-primary;
+}
+
+hr.star-primary:after {
+    background-color: white;
+    color: @brand-primary;
+}
+
+.img-centered {
+	margin: 0 auto;
+}
+
+section {
+    padding: 100px 0;
+    h2 {
+    	margin: 0;
+    	font-size: 3em;
+    }
+}
+
+section.success {
+	background: @brand-success;
+	color: white;
+}
+
+@media(max-width:767px) {
+	section {
+		padding: 75px 0;
+	}
+	section.first {
+		padding-top: 75px;
+	}
+}
+
+@media(min-width:767px) {
+    #derps {
+        .derps-item {
+            margin: 0 0 30px;
+        }
+    }
+}
+
+.floating-label-form-group {
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid @gray-lighter;
+    input,
+    textarea {
+	    z-index: 1;
+	    position: relative;
+	    padding-right: 0;
+	    padding-left: 0;
+	    border: none;
+	    border-radius: 0;
+	    font-size: 1.5em;
+	    background: none;
+	    box-shadow: none !important;
+	    resize: none;
+    }
+    label {
+	    display: block;
+	    z-index: 0;
+	    position: relative;
+	    top: 2em;
+	    margin: 0;
+	    font-size: 0.85em;
+	    line-height: 1.764705882em;
+	    vertical-align: middle;
+	    vertical-align: baseline;
+	    opacity: 0;
+	    -webkit-transition: top 0.3s ease,opacity 0.3s ease;
+	    -moz-transition: top 0.3s ease,opacity 0.3s ease;
+	    -ms-transition: top 0.3s ease,opacity 0.3s ease;
+	    transition: top 0.3s ease,opacity 0.3s ease;
+    }
+    &:not(:first-child) {
+	    padding-left: 14px;
+	    border-left: 1px solid @gray-lighter;
+    }
+}
+
+.floating-label-form-group-with-value {
+	label {
+	    top: 0;
+	    opacity: 1;
+	}
+}
+
+.floating-label-form-group-with-focus {
+	label {
+	    color: @brand-success;
+	}
+}
+
+form .row:first-child .floating-label-form-group {
+    border-top: 1px solid @gray-lighter;
+}
+
+// Buttons
+
+.btn-outline {
+	color: white;
+	font-size: 20px;
+	border: solid 2px white;
+	background: transparent;
+	transition: all 0.3s ease-in-out;
+	margin-top: 15px;
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		color: @brand-success;
+		background: white;
+		border: solid 2px white;
+	}
+}
+
+.btn-primary {
+	.button-variant(white; @brand-primary; @brand-primary);
+	font-weight: 700;
+}
+
+.btn-success {
+	.button-variant(white; @brand-success; @brand-success);
+	font-weight: 700;
+}
+
+.btn-social {
+  margin-top:0px;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	border: 2px solid white;
+	border-radius: 100%;
+	text-align: center;
+	font-size: 20px;
+	line-height: 45px;
+}
+
+.btn:focus,
+.btn:active,
+.btn.active {
+	outline: none;
+}
+
+.scroll-top {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;
+    z-index: 1049;
+    .btn {
+    	font-size: 20px;
+	    width: 50px;
+	    height: 50px;
+	    border-radius: 100%;
+	    line-height: 28px;
+	    &:focus {
+	    	outline: none;
+	    }
+    }
+}
+
+.button-variant(@color; @background; @border) {
+	color: @color;
+	background-color: @background;
+	border-color: @border;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open .dropdown-toggle& {
+		color: @color;
+		background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+	}
+	&:active,
+	&.active,
+	.open .dropdown-toggle& {
+		background-image: none;
+	}
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background-color: @background;
+			border-color: @border;
+		}
+	}
+
+	.badge {
+		color: @background;
+		background-color: @color;
+	}
+}
+
+.transition-all() {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.modal {
+  padding-left: 0 !important;
+}

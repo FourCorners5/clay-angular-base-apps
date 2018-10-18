@@ -23,7 +23,7 @@
             },
             injectChanges: true,
             logFileChanges: true,
-            logPrefix: 'JCM App'
+            logPrefix: 'Clay App'
         });
     }
 

@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', require('./rating'));
-app.use('/gamespotlight', require('./gamespotlight'));
+app.use('/derpspotlight', require('./derpspotlight'));
 app.use('/xl1reps', require('./xl1reps'));
 app.use('/assets', express.static(__dirname + '/assets'));
 

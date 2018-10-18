@@ -35,7 +35,7 @@ function HomeController($sce, $rootScope) {
 			"LinkExternal": false
 		},
 		{
-			"Headline": "Video Games",
+			"Headline": "Video derps",
 			"MediaType": "image",
 			"MediaURL": vm.trustify("assets/images/jcm.jpg"),
 			"Body": "I started a company to share my particular sense of creative fun through entertainment media.",

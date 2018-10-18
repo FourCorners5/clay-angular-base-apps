@@ -1,0 +1,52 @@
+{
+  "name": "clay-angular-app",
+  "authors": [
+    "Clayton Belcher"
+  ],
+  "description": "Clayton's AngularJS seed",
+  "main": "index",
+  "moduleType": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clayt/clay-angular-app/issues"
+  },
+  "homepage": "https://github.com/clayt/clay-angular-app#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "angular-animate": "1.5.7",
+    "angular-sanitize": "1.5.7",
+    "angular-touch": "1.5.7",
+    "angular-messages": "1.5.7",
+    "angular-toastr": "1.7.0",
+    "angular-ui-tree": "2.16.0",
+    "angular-bootstrap": "1.3.3",
+    "angular-auto-validate": "1.19.5",
+    "font-awesome": "4.6.3",
+    "angular-localforage": "1.2.5",
+    "underscore": "1.8.3",
+    "angular-ui-router": "0.3.1",
+    "angular-busy": "4.1.3",
+    "angular-resource": "1.5.7",
+    "angular": "1.5.7",
+    "angular-cookies": "1.5.7",
+    "ng-scrollbars": "./custom_components/ng-scrollbars",
+    "ngClipboard": "./custom_components/ngClipboard",
+    "ngSmoothScroll": "^2.0.0",
+    "angular-scroll": "^1.0.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.5.7"
+  },
+  "resolutions": {
+    "angular": "1.5.7",
+    "angular-animate": "1.5.7",
+    "font-awesome": "4.7.0"
+  }
+}
