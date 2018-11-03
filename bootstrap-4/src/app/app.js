@@ -12,13 +12,8 @@ angular.module('clayApp', [
     'toastr',
     'cgBusy',
     'jcs-autoValidate',
-    'nav',
-    'footer',
-    'forms',
     'imgSpinner',
-    'ngScrollbars',
-    'duScroll',
-    'ngClipboard'
+    'btn'
 ])
     .controller('AppCtrl', AppCtrl)
     .config(Routing)

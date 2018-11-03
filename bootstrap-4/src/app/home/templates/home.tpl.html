@@ -1,143 +1,73 @@
-<article id="COMPONENT_Home">
-    <!-- Header -->
-    <header id="page-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <img class="img-fluid" src="https://placehold.it/500x500">
-                    <div class="intro-text"> <span class="name">Lorem Ipsum</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- About Section -->
-    <section id="about">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12 text-center">
-                     <h2>About</h2>
-                    <!--<hr class="star-light">-->
-                </div>
-            </div>
-            <br>
-            <img src="https://placehold.it/500x500" class="img-fluid margin-center">
-            <br>
-            <div class="row">
-                <div class="col-12 col-xl-4 offset-lg-4 text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan
-                        felis nec diam lobortis, ultrices suscipit lorem vestibulum. Duis faucibus
-                        augue in maximus malesuada. Proin tempus vestibulum lorem vel vehicula.
-                        Pellentesque lobortis a arcu sed ornare. Praesent in faucibus odio, vel
-                        dictum ante. Nulla consequat imperdiet nibh sit amet molestie. Vestibulum
-                        faucibus arcu ut gravida fringilla. Curabitur condimentum efficitur eros,
-                        vel consequat leo malesuada eu.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Founder Section -->
-    <section class="success" id="founder">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12 text-center">
-                     <h2>Dolor Sit Amet.</h2>
-                    <!--<hr class="star-light">-->
-                </div>
-            </div>
-            <br>
-            <img src="https://placehold.it/500x500" class="img-fluid rounded-circle margin-center">
-            <br>
-            <div class="row">
-                <div class="col-12 col-xl-4 offset-lg-4 text-center">
-                    <p>Etiam eget est sit amet lorem pharetra scelerisque. Pellentesque ultrices
-                        mollis est, eu aliquet neque accumsan eget. Aliquam pulvinar ex et lectus
-                        accumsan, sed fermentum erat rutrum. Nullam eleifend felis felis. Proin
-                        vitae fringilla sapien. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Praesent ac turpis a quam maximus dictum. Aenean venenatis ex vitae
-                        tempor rutrum.</p>
-                    <p>Etiam eget est sit amet lorem pharetra scelerisque. Pellentesque ultrices
-                        mollis est, eu aliquet neque accumsan eget. Aliquam pulvinar ex et lectus
-                        accumsan, sed fermentum erat rutrum. Nullam eleifend felis felis. Proin
-                        vitae fringilla sapien. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Praesent ac turpis a quam maximus dictum. Aenean venenatis ex vitae
-                        tempor rutrum.</p>
-                </div>
-                <!--<a href="#" class="btn btn-lg btn-outline">
-
-                        <i class="fa fa-download"></i> Download Theme
-
-                    </a>-->
-            </div>
-        </div>
-    </section>
-    <!-- Grid Section -->
-    <section id="derps">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-12 text-center">
-                     <h2>Derps</h2>
-                    <!--<hr class="star-primary">-->
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12 derps-item"> <a href="#derpsModal" class="derps-link" data-toggle="modal">
-
-                        <div class="caption">
-
-                            <div class="caption-content">
-
-                                <i class="fa fa-search-plus fa-3x"></i>
-
-                            </div>
-
-                        </div>
-
-                        <img src="https://placehold.it/500x500" class="img-fluid rounded-corners">
-
-                    </a>
- <a href="#derpsModal" class="text-center" data-toggle="modal">
-
-                        <h3>Lorem Ipsum</h3>
-
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Modals -->
-    <div class="derps-modal modal fade" id="derpsModal" tabindex="-1" role="dialog"
-    aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-xl-8 offset-lg-2">
-                        <div class="modal-body">
-                             <h2>Herpaderp</h2>
-                            <br>
-                            <!--<hr class="star-primary">-->
-                            <div class="row">
-                                <div class="col-6 col-lg-3" ng-repeat="screenshot in home.screenshots">
-                                    <img ng-src="{{screenshot}}" class="img-fluid">
-                                </div>
-                            </div>
-                            <p>Etiam eget est sit amet lorem pharetra scelerisque. Pellentesque ultrices
-                                mollis est, eu aliquet neque accumsan eget. Aliquam pulvinar ex et lectus
-                                accumsan, sed fermentum erat rutrum. Nullam eleifend felis felis. Proin
-                                vitae fringilla sapien. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Praesent ac turpis a quam maximus dictum. Aenean venenatis ex vitae
-                                tempor rutrum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1 class="display-3">Hello, world! <icon fa="globe" /></h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+                jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                unique.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
     </div>
-    <sitefooter></sitefooter>
-</article>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p><div uib-datepicker ng-model="dt" class="well well-sm" datepicker-options="home.options"></div></p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id
+                    ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                    condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+        <hr>
+    </div> <!-- /container -->
+</main>
+<footer class="container">
+    <p>&copy; Company 2017-2018</p>
+</footer>

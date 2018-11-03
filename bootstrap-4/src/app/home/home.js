@@ -27,26 +27,43 @@ function HomeConfig($stateProvider) {
 function HomeController($rootScope, $stateParams, $location, $anchorScroll, $timeout) {
 	var vm = $rootScope.currentScope = this;
 
+	// This code below is just to run the datepicker
 
-	$timeout(function () {
-		if ($stateParams.scroll) {
-			console.log($stateParams.scroll)
-			var duration = 1000;
-			var offset = 50;
-			var anchorElement = angular.element('#' + $stateParams.scroll);
-			var containerElement = angular.element('#COMPONENT_Home')
-			containerElement.scrollToElementAnimated(anchorElement, offset, duration);
+	vm.options = {
+		customClass: getDayClass,
+		minDate: new Date(),
+		showWeeks: true
+	};
+
+	function getDayClass(data) {
+		var date = data.date,
+			mode = data.mode;
+		if (mode === 'day') {
+			var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+			for (var i = 0; i < vm.events.length; i++) {
+				var currentDay = new Date(vm.events[i].date).setHours(0, 0, 0, 0);
+
+				if (dayToCheck === currentDay) {
+					return vm.events[i].status;
+				}
+			}
 		}
-	});
+	}
 
+	vm.events = [
+		{
+			date: tomorrow,
+			status: 'full'
+		},
+		{
+			date: afterTomorrow,
+			status: 'partially'
+		}
+	];
 
-	vm.screenshots = [
-		"https://placehold.it/800x800?v=1",
-		"https://placehold.it/800x800?v=2",
-		"https://placehold.it/800x800?v=3",
-		"https://placehold.it/800x800?v=4",
-		"https://placehold.it/800x800?v=5",
-		"https://placehold.it/800x800?v=6",
-		"https://placehold.it/800x800?v=7"
-	]
+	var tomorrow = new Date();
+	tomorrow.setDate(tomorrow.getDate() + 1);
+	var afterTomorrow = new Date(tomorrow);
+	afterTomorrow.setDate(tomorrow.getDate() + 1);
 }

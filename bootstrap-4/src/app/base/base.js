@@ -15,28 +15,11 @@ function BaseConfig($stateProvider) {
     });
 }
 
-function BaseController($media, $rootScope, $state, $scope, $timeout) {
+function BaseController($media, $rootScope) {
     var vm = $rootScope.currentScope = this;
 
-    vm.siteVersion = "0.1.0";
-    
-    vm.scrollConfig = {
-        autoHideScrollbar: true,
-        theme: 'minimal-dark',
-        advanced: {
-            updateOnContentResize: true
-        },
-        setWidth: false,
-        setHeight: false,
-        scrollInertia: 0,
-        scrollbarPosition: "inside",
-        advanced: { autoExpandHorizontalScroll: 3 },
-        callbacks: {
-            onScrollStart: function () {
-                $timeout(function () { $rootScope.$broadcast('scrollStarted'); });
-            }
-        }
-    };
+    vm.siteVersion = "0.0.1";
+
 }
 
 function messageModalController($scope, $sce, $uibModalInstance, header, body, closeDisplay, dismissDisplay) {

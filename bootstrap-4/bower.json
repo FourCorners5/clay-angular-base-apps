@@ -33,11 +33,8 @@
     "angular-resource": "1.5.7",
     "angular": "1.5.7",
     "angular-cookies": "1.5.7",
-    "ng-scrollbars": "./custom_components/ng-scrollbars",
-    "ngClipboard": "./custom_components/ngClipboard",
-    "ui-bootstrap-4": "./custom_components/ui-bootstrap-4",
-    "ngSmoothScroll": "^2.0.0",
-    "angular-scroll": "^1.0.2"
+    "bootstrap-4-less": "./custom_components/bootstrap-4-less",
+    "ui-bootstrap-4": "./custom_components/ui-bootstrap-4"
   },
   "devDependencies": {
     "angular-mocks": "1.5.7"
