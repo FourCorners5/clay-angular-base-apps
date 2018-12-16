@@ -7,18 +7,12 @@ function HomeConfig($stateProvider) {
 	$stateProvider
 		.state('home', {
 			parent: 'base',
-			url: '/home/:scroll',
+			url: '/home',
 			templateUrl: 'home/templates/home.tpl.html',
 			controller: 'HomeCtrl',
 			controllerAs: 'home',
 			data: {
 				componentName: 'Home'
-			},
-			params: {
-				scroll: {
-					value: null,
-					squash: true
-				}
 			}
 		})
 		;
@@ -27,7 +21,7 @@ function HomeConfig($stateProvider) {
 function HomeController($rootScope, $stateParams, $location, $anchorScroll, $timeout) {
 	var vm = $rootScope.currentScope = this;
 
-	// This code below is just to run the datepicker
+	// This code below is just to run the datepicker to show ui-bootstrap working.
 
 	vm.options = {
 		customClass: getDayClass,
