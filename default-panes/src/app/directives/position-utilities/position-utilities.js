@@ -19,6 +19,7 @@ angular.module('position-utilities')
     .directive('mh', mh)
     .directive('w', w)
     .directive('h', h)
+    .directive('f', f)
     ;
 
 function mt() {
@@ -269,6 +270,20 @@ function h() {
         link: function (scope, el, attrs) {
 
             el.css({ 'height': scope.h });
+        }
+    }
+}
+
+function f() {
+    return {
+        restrict: 'A',
+        scope: {
+            f: '@'
+        },
+        replace: true,
+        link: function (scope, el, attrs) {
+
+            el.css({ 'font-size': scope.f });
         }
     }
 }
